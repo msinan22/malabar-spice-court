@@ -95,3 +95,36 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+async function loadMenu() {
+  try {
+    // 1. Fetch the data from your JSON file
+    const response = await fetch('/menu.json');
+    const menuItems = await response.json();
+    
+    // 2. Find the menu-grid container in your HTML
+    const menuGrid = document.querySelector('.menu-grid');
+    
+    // 3. Clear any placeholder content inside it
+    menuGrid.innerHTML = '';
+    
+    // 4. Map (loop) through each food item and turn it into HTML strings
+    menuGrid.innerHTML = menuItems.map(item => `
+      <div class="food-card fade-in-up" style="transition-delay: ${item.delay};">
+          <div class="card-img">
+              <img src="${item.image}" alt="${item.name}">
+          </div>
+          <div class="card-content">
+              <h3>${item.name}</h3>
+              <p class="price">${item.price}</p>
+          </div>
+      </div>
+    `).join(''); // Join eliminates unwanted commas between cards
+    
+  } catch (error) {
+    console.error("Error loading the menu data:", error);
+  }
+}
+
+// Fire the function immediately when the webpage loads
+document.addEventListener('DOMContentLoaded', loadMenu);

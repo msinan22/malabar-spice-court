@@ -1,0 +1,27 @@
+backend:
+  name: github
+  repo: msinan22/malabar-spice-court
+ # Replace with your exact repository name
+  branch: main
+
+media_folder: "images" # Where new food photos will save
+public_folder: "images"
+
+collections:
+  - name: "restaurant_data"
+    label: "Restaurant Data"
+    files:
+      - file: "menu.json"
+        label: "Manage Menu Cards"
+        name: "menu"
+        fields:
+          - label: "Dishes List"
+            name: "menu_items"
+            widget: "list"
+            allow_add: true
+            summary: "{{fields.name}} - {{fields.price}}"
+            fields:
+              - { label: "Dish Name", name: "name", widget: "string" }
+              - { label: "Price (with symbol)", name: "price", widget: "string" }
+              - { label: "Food Photo", name: "image", widget: "image" }
+              - { label: "Animation Delay (e.g. 0s, 0.1s)", name: "delay", widget: "string", default: "0s" }
