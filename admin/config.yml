@@ -5,7 +5,7 @@ backend:
   branch: main
 
 media_folder: "images" # Where new food photos will save
-public_folder: "images"
+public_folder: "/images"
 
 collections:
   - name: "restaurant_data"

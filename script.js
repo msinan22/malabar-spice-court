@@ -98,33 +98,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function loadMenu() {
   try {
-    // 1. Fetch the data from your JSON file
-    const response = await fetch('/menu.json');
+    // 1. Fetch data file with cache-buster
+    const response = await fetch(`/menu.json?v=${new Date().getTime()}`);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
     const data = await response.json();
+    console.log("Successfully fetched menu data:", data); // Check this in console!
     
-    // 2. Find the menu-grid container in your HTML
     const menuGrid = document.querySelector('.menu-grid');
+    if (!menuGrid) return; // Safely stop if element isn't rendered yet
     
-    // 3. Clear any placeholder content inside it
     menuGrid.innerHTML = '';
     
-    // 4. Map (loop) through each food item and turn it into HTML strings
-    menuGrid.innerHTML = data.menu_items.map(item => `
-      <div class="food-card fade-in-up" style="transition-delay: ${item.delay};">
+    // 2. Safe check: Extract items array regardless of structure
+    const items = data.menu_items || data;
+    
+    if (!Array.isArray(items)) {
+      console.error("Data structure error: Expected an array but got:", items);
+      return;
+    }
+    
+    // 3. Render HTML smoothly
+    menuGrid.innerHTML = items.map(item => `
+      <div class="food-card fade-in-up" style="transition-delay: ${item.delay || '0s'};">
           <div class="card-img">
-              <img src="${item.image}" alt="${item.name}">
+              <img src="${item.image}" alt="${item.name || 'Food Item'}">
           </div>
           <div class="card-content">
-              <h3>${item.name}</h3>
-              <p class="price">${item.price}</p>
+              <h3>${item.name || 'Delicious Dish'}</h3>
+              <p class="price">${item.price || 'Contact for Price'}</p>
           </div>
       </div>
-    `).join(''); // Join eliminates unwanted commas between cards
+    `).join('');
     
   } catch (error) {
-    console.error("Error loading the menu data:", error);
+    console.error("Menu loading failed completely:", error);
   }
 }
 
-// Fire the function immediately when the webpage loads
+// Fire the function safely when DOM is ready
 document.addEventListener('DOMContentLoaded', loadMenu);
