@@ -3,7 +3,7 @@
     {
       "name": "Malabar Chicken Biriyani",
       "price": "₹260",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSwzECic-pvTOLnoFu9KvbfEdZwvPDortp2KZ2rZ2J4g&s=10",
+      "image": "images/cb_menu.png",
       "delay": "0s"
     },
     {
@@ -23,6 +23,12 @@
       "price": "₹380",
       "image": "images/fish_molly.png",
       "delay": "0.3s"
+    },
+    {
+      "delay": "0s",
+      "name": "Karmeen Pollichathu",
+      "price": "₹220",
+      "image": "https://www.keralatourism.org/_next/image/?url=http%3A%2F%2F127.0.0.1%2Fktadmin%2Fimg%2Fpages%2Fmobile%2Fkarimeen-pollichathu-1722150177_c898bc7266aa8f621ac4.webp&w=1080&q=75"
     }
   ]
 }
