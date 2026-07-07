@@ -100,7 +100,7 @@ async function loadMenu() {
   try {
     // 1. Fetch the data from your JSON file
     const response = await fetch('/menu.json');
-    const menuItems = await response.json();
+    const data = await response.json();
     
     // 2. Find the menu-grid container in your HTML
     const menuGrid = document.querySelector('.menu-grid');
@@ -109,7 +109,7 @@ async function loadMenu() {
     menuGrid.innerHTML = '';
     
     // 4. Map (loop) through each food item and turn it into HTML strings
-    menuGrid.innerHTML = menuItems.map(item => `
+    menuGrid.innerHTML = data.menu_items.map(item => `
       <div class="food-card fade-in-up" style="transition-delay: ${item.delay};">
           <div class="card-img">
               <img src="${item.image}" alt="${item.name}">
