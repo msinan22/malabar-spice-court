@@ -123,7 +123,7 @@ async function loadMenu() {
     
     // 3. Render HTML smoothly
     menuGrid.innerHTML = items.map(item => `
-      <div class="food-card fade-in-up" style="transition-delay: ${item.delay || '0s'};">
+      <div class="food-card" style="transition-delay: ${item.delay || '0s'};">
           <div class="card-img">
               <img src="${item.image}" alt="${item.name || 'Food Item'}">
           </div>
