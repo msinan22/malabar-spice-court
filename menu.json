@@ -9,13 +9,13 @@
     {
       "name": "Prawns Pollichathu",
       "price": "₹450",
-      "image": "Prawns.png",
+      "image": "images/prawns.png",
       "delay": "0.1s"
     },
     {
       "name": "Nadan Beef Fry",
       "price": "₹300",
-      "image": "Beef_fry.png",
+      "image": "images/beef_fry.png",
       "delay": "0.2s"
     },
     {
