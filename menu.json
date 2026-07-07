@@ -3,25 +3,25 @@
     {
       "name": "Malabar Chicken Biriyani",
       "price": "₹260",
-      "image": "CB_menu.png",
+      "image": "images/cb_menu.png",
       "delay": "0s"
     },
     {
       "name": "Prawns Pollichathu",
       "price": "₹450",
-      "image": "Prawns.png",
+      "image": "images/prawns.png",
       "delay": "0.1s"
     },
     {
       "name": "Nadan Beef Fry",
       "price": "₹300",
-      "image": "Beef_fry.png",
+      "image": "images/beef_fry.png",
       "delay": "0.2s"
     },
     {
       "name": "Fish Molly",
       "price": "₹380",
-      "image": "Fish_molly.png",
+      "image": "images/fish_molly.png",
       "delay": "0.3s"
     }
   ]
